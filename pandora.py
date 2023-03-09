@@ -1,4 +1,4 @@
-# 
+import itertools
 
 
 with open('input.txt') as f:
@@ -80,7 +80,7 @@ def sort_demons(demons):
     return demons
 
 def collectFragments(turns, demon):
-    print(sum(demon[4:turns+1]))
+    # print(sum(demon[4:turns+1]))
     return sum(demon[4:turns+1])
 
 # Loop over the remaining lines in the input file and store the demon data in a list of tuples
@@ -128,18 +128,15 @@ for i in range(0, len(demon_data)):
             #if not enough stamina, move to the next demon
             break
         # Collect fragments
-        # function to calculate the fragments 
-        # collected_fragments += demon[4 + demons_faced[i]]
-        # Increase the number of turns passed
         collected_fragments += collectFragments(demons_faced[i], demon)
+        # Increase the number of turns passed
         turns_passed += 1
         # Increase the number of turns passed since last stamina recovery
         stamina_recovery_turns += 1
-            
-    
+
 print(collected_fragments, demon_order, demons_faced)
 
 with open('output.txt', 'w') as f:
     for i in range(0, len(demon_order)):
         f.write(str(demon_order[i]) + "\n")
-        
+
