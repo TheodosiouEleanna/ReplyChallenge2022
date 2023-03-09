@@ -81,7 +81,7 @@ def sort_demons(demons):
 
 def collectFragments(turns, demon):
     # print(sum(demon[4:turns+1]))
-    return sum(demon[4:turns+1])
+    return demon[4+turns+1]
 
 # Loop over the remaining lines in the input file and store the demon data in a list of tuples
 for i in range(1, demons+1):
